@@ -1,5 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { Auth, GoogleAuthProvider, signInWithPopup, user } from '@angular/fire/auth';
+import {
+  Auth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  user,
+} from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { LoaderService } from '../loader/loader.service';
@@ -15,7 +20,7 @@ export class AuthService {
   loaderService = inject(LoaderService);
 
   async logout() {
-    const alert = await this.alertController.create({
+    /* const alert = await this.alertController.create({
       header: 'Confirmation',
       message: 'Are you sure ! Do you want to Logout?',
       buttons: [
@@ -31,7 +36,13 @@ export class AuthService {
         'No',
       ],
     });
-    await alert.present();
+    await alert.present(); */
+    if (confirm('Are you sure ! Do you want to Logout?')) {
+      const loaderId = this.loaderService.show();
+      await this.auth.signOut();
+      await this.router.navigate(['/login']);
+      this.loaderService.hide(loaderId);
+    }
   }
   async login() {
     const loaderId = this.loaderService.show();
