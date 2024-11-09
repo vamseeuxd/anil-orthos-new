@@ -38,3 +38,14 @@
 /* @import '@ionic/angular/css/palettes/dark.system.css'; */
 
 /* https://ionicframework.com/docs/ja/v7/theming/dark-mode */
+
+.root-menu {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  display: inline-flex;
+  z-index: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
