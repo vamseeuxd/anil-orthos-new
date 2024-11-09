@@ -30,6 +30,7 @@
           </ion-item>
         </ion-list>
         <ion-button color="medium" (click)="logout()">Logout</ion-button>
+        <ion-button color="medium" [routerLink]="['/home']" routerLinkActive="router-link-active" >Go to Home</ion-button>
       </ion-card-content>
     </ion-card>
     <ng-template #loginButton>
