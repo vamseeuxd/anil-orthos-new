@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AutocompleteListComponent } from './autocomplete-list.component';
+import { PatientAutocompleteListComponent } from './patient-autocomplete-list.component';
 
 describe('AutocompleteListComponent', () => {
-  let component: AutocompleteListComponent;
-  let fixture: ComponentFixture<AutocompleteListComponent>;
+  let component: PatientAutocompleteListComponent;
+  let fixture: ComponentFixture<PatientAutocompleteListComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutocompleteListComponent ],
+      declarations: [ PatientAutocompleteListComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AutocompleteListComponent);
+    fixture = TestBed.createComponent(PatientAutocompleteListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

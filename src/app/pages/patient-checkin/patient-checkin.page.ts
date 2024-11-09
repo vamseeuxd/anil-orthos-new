@@ -13,7 +13,7 @@ import {
   IonIcon,
 } from '@ionic/angular/standalone';
 import { PatientRegistrationFormComponent } from '../../components/patient-registration-form/patient-registration-form.component';
-import { AutocompleteListComponent } from 'src/app/components/autocomplete-list/autocomplete-list.component';
+import { PatientAutocompleteListComponent } from 'src/app/components/patient-autocomplete-list/patient-autocomplete-list.component';
 import { addIcons } from 'ionicons';
 import { add } from 'ionicons/icons';
 
@@ -34,7 +34,7 @@ import { add } from 'ionicons/icons';
     IonTitle,
     IonToolbar,
     IonButton,
-    AutocompleteListComponent,
+    PatientAutocompleteListComponent,
     PatientRegistrationFormComponent,
   ],
 })
