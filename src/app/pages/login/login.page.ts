@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule, NgIf, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
   IonContent,
@@ -16,7 +16,12 @@ import {
   IonCardSubtitle,
   IonList,
   IonItem,
-  IonLabel, IonAvatar, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
+  IonLabel,
+  IonAvatar,
+  IonGrid,
+  IonRow,
+  IonCol,
+} from '@ionic/angular/standalone';
 import {
   Auth,
   GoogleAuthProvider,
@@ -25,47 +30,30 @@ import {
 } from '@angular/fire/auth';
 import { Router, RouterLink } from '@angular/router';
 import { LoaderService } from 'src/app/services/loader/loader.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonCol, IonRow, IonGrid, IonAvatar,
-    IonLabel,
-    IonItem,
-    IonList,
-    IonCardSubtitle,
-    IonCardTitle,
-    IonCardHeader,
-    IonText,
-    IonCardContent,
-    IonIcon,
-    IonCard,
-    IonButton,
-    IonContent,
+  imports: [
     IonHeader,
-    IonTitle,
     IonToolbar,
-    CommonModule,
-    FormsModule,
+    IonTitle,
+    IonContent,
+    IonCard,
+    IonCardContent,
+    IonList,
+    IonItem,
+    IonLabel,
+    IonButton,
     RouterLink,
+    TitleCasePipe,
+    AsyncPipe,
+    NgIf,
   ],
 })
 export class LoginPage {
-  auth = inject(Auth);
-  user$ = user(this.auth);
-  router = inject(Router);
-  loaderService = inject(LoaderService);
-
-  async login() {
-    const loaderId = this.loaderService.show();
-    const user = await signInWithPopup(this.auth, new GoogleAuthProvider());
-    await this.router.navigate(['/home']);
-    this.loaderService.hide(loaderId);
-  }
-
-  logout() {
-    this.auth.signOut();
-  }
+  authService = inject(AuthService);
 }
