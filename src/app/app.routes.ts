@@ -4,7 +4,7 @@ import { authGuard } from './auth.guard';
 export const routes: Routes = [
   {
     path: 'home', canActivate: [authGuard],
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    loadComponent: () => import('./pages/home/home.page').then((m) => m.HomePage),
   },
   {
     path: '',
@@ -13,18 +13,18 @@ export const routes: Routes = [
   },
   {
     path: 'patient-checkin', canActivate: [authGuard],
-    loadComponent: () => import('./patient-checkin/patient-checkin.page').then( m => m.PatientCheckinPage)
+    loadComponent: () => import('./pages/patient-checkin/patient-checkin.page').then( m => m.PatientCheckinPage)
   },
   {
     path: 'waiting-list', canActivate: [authGuard],
-    loadComponent: () => import('./waiting-list/waiting-list.page').then( m => m.WaitingListPage)
+    loadComponent: () => import('./pages/waiting-list/waiting-list.page').then( m => m.WaitingListPage)
   },
   {
     path: 'doctor-controls', canActivate: [authGuard],
-    loadComponent: () => import('./doctor-controls/doctor-controls.page').then( m => m.DoctorControlsPage)
+    loadComponent: () => import('./pages/doctor-controls/doctor-controls.page').then( m => m.DoctorControlsPage)
   },
   {
     path: 'login',
-    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+    loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
   },
 ];
