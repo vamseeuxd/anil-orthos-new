@@ -24,6 +24,7 @@ import {
   user,
 } from '@angular/fire/auth';
 import { Router, RouterLink } from '@angular/router';
+import { LoaderService } from 'src/app/services/loader/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -55,10 +56,13 @@ export class LoginPage {
   auth = inject(Auth);
   user$ = user(this.auth);
   router = inject(Router);
+  loaderService = inject(LoaderService);
 
   async login() {
+    const loaderId = this.loaderService.show();
     const user = await signInWithPopup(this.auth, new GoogleAuthProvider());
-    this.router.navigate(['/home']);
+    await this.router.navigate(['/home']);
+    this.loaderService.hide(loaderId);
   }
 
   logout() {
