@@ -12,19 +12,15 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'patient-checkin', canActivate: [authGuard],
-    loadComponent: () => import('./pages/patient-checkin/patient-checkin.page').then( m => m.PatientCheckinPage)
-  },
-  {
-    path: 'waiting-list', canActivate: [authGuard],
-    loadComponent: () => import('./pages/waiting-list/waiting-list.page').then( m => m.WaitingListPage)
-  },
-  {
-    path: 'doctor-controls', canActivate: [authGuard],
-    loadComponent: () => import('./pages/doctor-controls/doctor-controls.page').then( m => m.DoctorControlsPage)
-  },
-  {
     path: 'login',
     loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'trade',
+    loadComponent: () => import('./pages/trade/trade.page').then( m => m.TradePage)
+  },
+  {
+    path: 'status',
+    loadComponent: () => import('./pages/status/status.page').then( m => m.StatusPage)
   },
 ];
