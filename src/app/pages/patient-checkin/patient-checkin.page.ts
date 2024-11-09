@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import {
   IonContent,
   IonHeader,
@@ -8,10 +6,16 @@ import {
   IonToolbar,
   IonButtons,
   IonBackButton,
-  IonNavLink,
-  IonItem,
-  IonLabel,
+  IonButton,
+  IonModal,
+  IonFab,
+  IonFabButton,
+  IonIcon,
 } from '@ionic/angular/standalone';
+import { PatientRegistrationFormComponent } from '../../components/patient-registration-form/patient-registration-form.component';
+import { AutocompleteListComponent } from 'src/app/components/autocomplete-list/autocomplete-list.component';
+import { addIcons } from 'ionicons';
+import { add } from 'ionicons/icons';
 
 @Component({
   selector: 'app-patient-checkin',
@@ -19,19 +23,29 @@ import {
   styleUrls: ['./patient-checkin.page.scss'],
   standalone: true,
   imports: [
-    IonLabel,
-    IonItem,
-    IonNavLink,
+    IonIcon,
+    IonFabButton,
+    IonFab,
+    IonModal,
     IonBackButton,
     IonButtons,
     IonContent,
     IonHeader,
     IonTitle,
     IonToolbar,
-    CommonModule,
-    FormsModule,
+    IonButton,
+    AutocompleteListComponent,
+    PatientRegistrationFormComponent,
   ],
 })
-export class PatientCheckinPage {
-  constructor() {}
+export class PatientCheckinPage implements OnInit {
+  presentingElement: any;
+
+  constructor() {
+    addIcons({ add });
+  }
+
+  ngOnInit() {
+    this.presentingElement = document.querySelector('.ion-page');
+  }
 }

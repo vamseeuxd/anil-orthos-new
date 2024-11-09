@@ -1,0 +1,114 @@
+<form #patientForm="ngForm" class="form">
+  <ion-input
+    name="name"
+    ngModel
+    required
+    style="margin-bottom: 24px"
+    label="Patient Name"
+    label-placement="floating"
+    fill="outline"
+    placeholder="Patient Name"
+  ></ion-input>
+
+  <ion-select
+    name="gender"
+    ngModel
+    required
+    style="margin-bottom: 24px"
+    label="Gender"
+    label-placement="floating"
+    fill="outline"
+    placeholder="Gender"
+  >
+    <ion-select-option>Male</ion-select-option>
+    <ion-select-option>Female</ion-select-option>
+  </ion-select>
+
+  <ion-input
+    name="dateOfBirth"
+    ngModel
+    required
+    type="date"
+    max="150"
+    style="margin-bottom: 24px"
+    label="Date of Birth"
+    label-placement="floating"
+    fill="outline"
+    placeholder="Date of Birth"
+  ></ion-input>
+
+  <ion-input
+    name="mobile"
+    ngModel
+    required
+    type="tel"
+    style="margin-bottom: 24px"
+    label="Mobile Number"
+    label-placement="floating"
+    fill="outline"
+    placeholder="Mobile Number"
+  ></ion-input>
+
+  <ion-textarea
+    name="addressLine"
+    ngModel
+    required
+    rows="3"
+    style="margin-bottom: 24px"
+    label="Address Line"
+    label-placement="floating"
+    fill="outline"
+    placeholder="Address Line"
+  ></ion-textarea>
+
+  <ion-select
+    name="city"
+    ngModel
+    required
+    style="margin-bottom: 24px"
+    label="City"
+    label-placement="floating"
+    fill="outline"
+    placeholder="City"
+  >
+    <ion-select-option>Amalapuram</ion-select-option>
+    <ion-select-option>P.Gannavaram</ion-select-option>
+  </ion-select>
+
+  <ion-select
+    name="state"
+    ngModel
+    required
+    style="margin-bottom: 24px"
+    label="State"
+    label-placement="floating"
+    fill="outline"
+    placeholder="State"
+  >
+    <ion-select-option>Andhra Pradesh</ion-select-option>
+    <ion-select-option>Telangana</ion-select-option>
+  </ion-select>
+
+  <ion-select
+    name="country"
+    ngModel
+    required
+    style="margin-bottom: 24px"
+    label="Country"
+    label-placement="floating"
+    fill="outline"
+    placeholder="Country"
+  >
+    <ion-select-option>India</ion-select-option>
+  </ion-select>
+
+  <div class="action-buttons">
+    <ion-button [disabled]="patientForm.invalid" color="medium" fill="clear"
+      >Save</ion-button
+    >
+    <ion-button color="medium" fill="clear">Cancel</ion-button>
+  </div>
+</form>
+
+
+<pre>{{patientForm.value|json}}</pre>
