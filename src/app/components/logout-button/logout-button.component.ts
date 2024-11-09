@@ -22,7 +22,7 @@ export class LogoutButtonComponent {
   user$ = user(this.auth);
   router = inject(Router);
   loaderService = inject(LoaderService);
-  @HostBinding('style.display') display = 'inline-block';
+  @HostBinding('style.display') display = '';
   @HostListener('click')
   async onClick() {
     const loaderId = this.loaderService.show();
@@ -33,7 +33,7 @@ export class LogoutButtonComponent {
   constructor() {
     this.user$.subscribe((user) => {
       if (user) {
-        this.display = 'inline-block';
+        this.display = '';
       } else {
         this.display = 'none';
       }

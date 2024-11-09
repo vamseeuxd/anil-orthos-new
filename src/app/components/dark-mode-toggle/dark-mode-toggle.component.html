@@ -1,8 +1,6 @@
-<ion-item lines="none" style="--min-height:auto;">
-  <!-- {{ paletteToggle ? "Dark" : "Light" }} &nbsp; -->
-  <i
-    class="fa-solid"
-    [class.fa-sun]="paletteToggle"
-    [class.fa-moon]="!paletteToggle"
-  ></i>
+<ion-item>
+  <i class="fa-solid" [class.fa-sun]="paletteToggle" [class.fa-moon]="!paletteToggle" ></i>
+  &nbsp;
+  {{ paletteToggle ? "Dark" : "Light" }}
+  Mode
 </ion-item>

@@ -1,8 +1,22 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
-  <div class="root-menu">
-    <app-logout-button/>
-    <app-dark-mode-toggle/>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Anil Ortho</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <app-logout-button/>
+      <app-dark-mode-toggle/>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+    <div class="root-menu">
+      <ion-item lines="none" style="--min-height:auto;">
+        <ion-menu-button></ion-menu-button>
+      </ion-item>
+    </div>
   </div>
 </ion-app>
 

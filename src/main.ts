@@ -4,6 +4,7 @@ import {
   provideRouter,
   withPreloading,
   PreloadAllModules,
+  withHashLocation,
 } from '@angular/router';
 import {
   IonicRouteStrategy,
@@ -22,8 +23,12 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideIonicAngular(),
-    provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideIonicAngular({ mode: 'md' }),
+    provideRouter(
+      routes,
+      withPreloading(PreloadAllModules),
+      withHashLocation()
+    ),
     provideFirebaseApp(() =>
       initializeApp({
         projectId: 'anil-orthos',
@@ -35,14 +40,17 @@ bootstrapApplication(AppComponent, {
       })
     ),
     provideAuth(() => getAuth()),
-    { provide: FIREBASE_OPTIONS, useValue:{
-      projectId: 'anil-orthos',
-      appId: '1:856435712:web:1d15e83d5ab28f479ffce5',
-      storageBucket: 'anil-orthos.firebasestorage.app',
-      apiKey: 'AIzaSyBrWRFB-9QKb74j-FV182e4Rh4A1JRLOWs',
-      authDomain: 'anil-orthos.firebaseapp.com',
-      messagingSenderId: '856435712',
-    } },
+    {
+      provide: FIREBASE_OPTIONS,
+      useValue: {
+        projectId: 'anil-orthos',
+        appId: '1:856435712:web:1d15e83d5ab28f479ffce5',
+        storageBucket: 'anil-orthos.firebasestorage.app',
+        apiKey: 'AIzaSyBrWRFB-9QKb74j-FV182e4Rh4A1JRLOWs',
+        authDomain: 'anil-orthos.firebaseapp.com',
+        messagingSenderId: '856435712',
+      },
+    },
     provideFirestore(() => getFirestore()),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),

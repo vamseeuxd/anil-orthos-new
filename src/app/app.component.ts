@@ -1,5 +1,14 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import {
+  IonApp,
+  IonRouterOutlet,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonMenuButton,
+  IonMenu,
+  IonButton, IonItem, IonLabel } from '@ionic/angular/standalone';
 import { DarkModeToggleComponent } from './components/dark-mode-toggle/dark-mode-toggle.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 
@@ -7,8 +16,18 @@ import { LogoutButtonComponent } from './components/logout-button/logout-button.
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonApp, IonRouterOutlet, DarkModeToggleComponent, LogoutButtonComponent],
+  imports: [IonLabel, IonItem,
+    IonButton,
+    IonContent,
+    IonTitle,
+    IonToolbar,
+    IonHeader,
+    IonApp,
+    IonMenu,
+    IonMenuButton,
+    IonRouterOutlet,
+    DarkModeToggleComponent,
+    LogoutButtonComponent,
+  ],
 })
-export class AppComponent{
-
-}
+export class AppComponent {}
